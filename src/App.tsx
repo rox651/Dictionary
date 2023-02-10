@@ -1,4 +1,4 @@
-import { Header, SearchBar } from "./components";
+import { Header, SearchBar, WordInfo } from "./components";
 
 const App = () => {
    return (
@@ -6,6 +6,7 @@ const App = () => {
          <Header />
          <div className="px-5">
             <SearchBar />
+            <WordInfo />
          </div>
       </main>
    );

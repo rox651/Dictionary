@@ -5,7 +5,7 @@ interface SearhTypes {
    updateSearchText: (value: string) => void;
 }
 
-const useStore = create<SearhTypes>(set => ({
-   searchText: "",
+export const useSearchStore = create<SearhTypes>(set => ({
+   searchText: "keyboard",
    updateSearchText: newText => set({ searchText: newText }),
 }));
