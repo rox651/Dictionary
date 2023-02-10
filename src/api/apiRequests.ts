@@ -1,4 +1,5 @@
 import axios from "axios";
+import { WordInformation } from "../types";
 
 const instance = axios.create({
    baseURL: "https://api.dictionaryapi.dev/api/v2/entries/en",
@@ -6,7 +7,8 @@ const instance = axios.create({
    headers: { "X-Custom-Header": "foobar" },
 });
 
-export const getWordInfo = async (word: string) => {
+export const getWordInfo = async (word: string): Promise<WordInformation> => {
    const response = await instance.get(`/${word}`);
-   return response;
+
+   return response.data[0];
 };

@@ -1,9 +1,5 @@
 import { create } from "zustand";
-
-interface SearhTypes {
-   searchText: string;
-   updateSearchText: (value: string) => void;
-}
+import { SearhTypes } from "../types/types";
 
 export const useSearchStore = create<SearhTypes>(set => ({
    searchText: "keyboard",
