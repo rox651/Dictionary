@@ -1,23 +1,24 @@
-import { useMemo } from "react";
-import { WordInformation } from "@/src/types";
+import { useMemo, useState } from "react";
 import { BiPlay } from "react-icons/bi";
-import { useState, useEffect } from "react";
+import { WordInformation } from "@/src/types";
 
 const Title = ({ wordInformation }: { wordInformation: WordInformation | undefined }) => {
-   const [isPlaying, setIsPlaying] = useState<boolean>(false);
    const audioSrc = wordInformation?.phonetics.filter(phoneticElement => phoneticElement.audio)[0];
 
    const audio = useMemo(() => new Audio(audioSrc?.audio), [wordInformation]);
 
    const handlePlay = () => {
-      setIsPlaying(true);
       audio.play();
    };
 
-
    return (
       <div className="flex items-center justify-between">
-         <h2 className=" text-5xl font-bold">{wordInformation?.word}</h2>
+         <div>
+            <h2 className="text-7xl font-bold capitalize">{wordInformation?.word}</h2>
+            <h2 className=" mt-2 text-3xl font-medium text-[#f544e5]">
+               {wordInformation?.phonetic}
+            </h2>
+         </div>
          {audioSrc?.audio && (
             <button
                onClick={handlePlay}
