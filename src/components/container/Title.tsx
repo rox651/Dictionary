@@ -14,17 +14,13 @@ const Title = ({ wordInformation }: { wordInformation: WordInformation | undefin
       audio.play();
    };
 
-   const handlePause = () => {
-      setIsPlaying(false);
-      audio.play();
-   };
 
    return (
       <div className="flex items-center justify-between">
          <h2 className=" text-5xl font-bold">{wordInformation?.word}</h2>
          {audioSrc?.audio && (
             <button
-               onClick={isPlaying ? handlePause : handlePlay}
+               onClick={handlePlay}
                className=" grid  h-32 w-32 place-items-center rounded-full bg-[#f544e5]/30 disabled:opacity-50"
             >
                <BiPlay className="text-7xl text-[#f544e5]" />
